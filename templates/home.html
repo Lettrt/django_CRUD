@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Номер</th>
+            <th scope="col">Название</th>
+            <th scope="col">Автор</th>
+            <th scope="col">Содержание</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <th scope="row">{{ article.id }}</th>
+            <td>
+                <a href="{% url 'article_detail' article.id %}">{{ article.title }}</a>
+            </td>
+            <td>{{ article.author }}</td>
+            <td>{{ article.content }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

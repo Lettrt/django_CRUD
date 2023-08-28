@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="article-detail">
+    <h1>{{ article.title }}</h1>
+    <h3>Автор: {{ article.author }}</h3>
+    <p>Дата создания: {{ article.created_at|date:"d M Y H:i" }}</p>
+    <p>Дата обновления: {{ article.update_at|date:"d M Y H:i" }}</p>
+    <hr>
+    <div class="content">
+        {{ article.content }}
+    </div>
+    <a href="{% url 'article_update' article.id %}" class="btn btn-primary">Редактировать</a>
+    <a href="{% url 'article_delete' article.id %}" class="btn btn-danger">Удалить</a>
+</div>
+
+{% endblock content %}
